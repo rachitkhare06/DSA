@@ -1,7 +1,7 @@
-
+import java.io.*;
 import java.util.*;
 
-public class maximum{
+public class maximum {
 
     public static void main(String[] args) throws Exception {
         // write your code here
@@ -12,19 +12,21 @@ public class maximum{
         {
             ar[i]=sc.nextInt();
         }
-        System.out.println(maxOfArray(ar,0));
+        System.out.println(maxOfArray(ar,n-1));
     }
 
     public static int maxOfArray(int[] arr, int idx){
-        if(idx==arr.length-1)
-        return arr[arr.length-1];
-        if(arr[idx]>arr[idx+1])
+        if(idx==0)
+        return arr[0];
+        int t=maxOfArray(arr,idx-1);
+        if(arr[idx]<t)
         {
-            int t=arr[idx];
-            arr[idx]=arr[idx+1];
-            arr[idx+1]=t;
+            return t;
         }
-        return maxOfArray(arr,idx+1);
+        else
+        {
+            return arr[idx];
+        }
         
     }
 
